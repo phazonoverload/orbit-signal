@@ -9,7 +9,10 @@
         class="h-8 p-1"
       />
     </n-link>
-    <n-link to="/settings" class="text-white mr-2">
+    <n-link
+      :to="$nuxt.$route.name == 'settings' ? '/' : '/settings'"
+      class="text-white mr-2"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
