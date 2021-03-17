@@ -131,6 +131,8 @@ export default {
   created() {
     this.auth = this.$store.state.auth || false
     this.activity = this.$store.state.event || false
+
+    if (!this.auth || !this.activity) this.$router.push('/settings')
   },
   methods: {
     async submitActivity() {
@@ -138,15 +140,21 @@ export default {
         const { auth, description, member, activity } = this
         const payload = { activity: { ...activity, member } }
         if (description) payload.activity.description = description
-        const { data } = await this.$axios({
+        await this.$axios({
           url: `${location.href}api/activity`,
           method: 'POST',
           data: { payload, auth },
         })
-        console.log(data)
+        this.clearForm()
       } catch (err) {
         console.error(err)
       }
+    },
+    clearForm() {
+      this.auth = this.$store.state.auth
+      this.activity = this.$store.state.event
+      this.member = {}
+      this.description = ''
     },
   },
 }
