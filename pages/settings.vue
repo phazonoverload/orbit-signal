@@ -109,9 +109,11 @@ export default {
   methods: {
     updateAuthDetails() {
       this.$store.dispatch('setAuthDetails', this.auth)
+      this.$toast.success('Saved')
     },
     updateEventDetails() {
       this.$store.dispatch('setEventDetails', this.event)
+      this.$toast.success('Saved')
     },
   },
 }

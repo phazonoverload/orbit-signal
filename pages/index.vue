@@ -132,7 +132,10 @@ export default {
     this.auth = this.$store.state.auth || false
     this.activity = this.$store.state.event || false
 
-    if (!this.auth || !this.activity) this.$router.push('/settings')
+    if (!this.auth || !this.activity) {
+      this.$router.push('/settings')
+      this.$toast.error('You must provide config')
+    }
   },
   methods: {
     async submitActivity() {
@@ -146,6 +149,7 @@ export default {
           data: { payload, auth },
         })
         this.clearForm()
+        this.$toast.success('Added activity')
       } catch (err) {
         console.error(err)
       }
