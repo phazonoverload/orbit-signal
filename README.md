@@ -13,6 +13,11 @@ npm install
 npm run dev
 ```
 
+## Deployment on Netlify
+
+- Build command: `npm run generate`
+- Publish directory: `dist`
+
 ## Improvements
 
 - [ ] Only allow existing activity types
