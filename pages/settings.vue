@@ -24,7 +24,7 @@
       </div>
       <div>
         <label for="api-token" class="block text-sm font-medium text-gray-700"
-          >API Token</label
+          >API Token[<a href="https://app.orbit.love/user/edit" target="_blank">find it</a>]</label
         >
         <div class="mt-1">
           <input
